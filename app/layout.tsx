@@ -1,8 +1,9 @@
 import "./globals.css";
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";
 import { Metadata } from "next";
+import { ThemeProvider } from "@/context/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,7 +11,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const spaceGrotesk = SpaceGrotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-spaceGrotesk",
@@ -26,10 +27,12 @@ export const metaData: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`${inter.variable} ${spaceGrotesk.variable}`}>{children}</body>
+    <html lang="en">
+        <ClerkProvider>
+          <ThemeProvider>
+            <body className={`${inter.variable} ${spaceGrotesk.variable}`}>{children}</body>
+          </ThemeProvider>
+        </ClerkProvider>
       </html>
-    </ClerkProvider>
   );
 }
