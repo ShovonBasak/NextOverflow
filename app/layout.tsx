@@ -28,11 +28,11 @@ export const metaData: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-        <ClerkProvider>
-          <ThemeProvider>
-            <body className={`${inter.variable} ${spaceGrotesk.variable}`}>{children}</body>
-          </ThemeProvider>
-        </ClerkProvider>
-      </html>
+      <ClerkProvider>
+        <ThemeProvider>
+          <body className={`${inter.variable} ${spaceGrotesk.variable}`}>{children}</body>
+        </ThemeProvider>
+      </ClerkProvider>
+    </html>
   );
 }
