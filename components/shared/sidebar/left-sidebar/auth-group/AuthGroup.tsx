@@ -1,15 +1,17 @@
-import { SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import LogOut from "./LogOut";
 
 const AuthGroup = () => {
   return (
-    <div>
+    <div className="mb-3 flex flex-col gap-3">
+      <SignedIn>
+        <LogOut />
+      </SignedIn>
       <SignedOut>
-        <div className="mb-3 flex flex-col gap-3">
-          <SignIn />
-          <SignUp />
-        </div>
+        <SignIn />
+        <SignUp />
       </SignedOut>
     </div>
   );
