@@ -1,4 +1,5 @@
 import "./globals.css";
+import type { ReactNode } from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";
 import { Metadata } from "next";
@@ -18,13 +19,14 @@ const spaceGrotesk = SpaceGrotesk({
 
 export const metaData: Metadata = {
   title: "NextFlow",
-  description: "A community driven platform for asking and answering programming questions. Get help share knowledge, and collaborate with developers around the world. Explore topics in web development, mobile app development, algorithms, data structure, and more.",
+  description:
+    "A community driven platform for asking and answering programming questions. Get help share knowledge, and collaborate with developers around the world. Explore topics in web development, mobile app development, algorithms, data structure, and more.",
   icons: {
     icon: "@/public/images/site-logo.svg",
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <ClerkProvider>
