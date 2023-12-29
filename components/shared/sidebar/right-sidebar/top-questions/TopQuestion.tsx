@@ -1,5 +1,6 @@
 import { topQuestions } from "@/constants";
 import Image from "next/image";
+import Link from "next/link";
 
 const TopQuestion = () => {
   return (
@@ -7,9 +8,9 @@ const TopQuestion = () => {
       <h1 className="h3-bold text-dark200_light900">Top Questions</h1>
       <div className="mt-7 flex w-full flex-col gap-[30px]">
         {topQuestions.map((question, index) => (
-          <a
+          <Link
             key={question.id}
-            href={question.path}
+            href={`/questions/${question.id}`}
             className="flex cursor-pointer items-center justify-between gap-7"
           >
             <p className="body-medium text-dark500_light700">
@@ -22,7 +23,7 @@ const TopQuestion = () => {
               alt="chevron right icon"
               className="invert-colors"
             />
-          </a>
+          </Link>
         ))}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import Tag from "./tags/PopularTag";
+import Tag from "./popular-tags/PopularTag";
 import TopQuestion from "./top-questions/TopQuestion";
 
 const RightSidebar = () => {
