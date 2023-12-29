@@ -43,3 +43,64 @@ export const sidebarLinks: SidebarLink[] = [
     label: "Ask a question",
   },
 ];
+
+export const topQuestions = [
+  {
+    id: 1,
+    path: "/",
+    title: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  },
+  {
+    id: 2,
+    path: "/",
+    title: "lorem ipsum dolor sit amet, consectetur adipiscing",
+  },
+  {
+    id: 3,
+    path: "/",
+    title: "lorem ipsum dolor sit amet, consectetur",
+  },
+  {
+    id: 4,
+    path: "/",
+    title: "lorem ipsum dolor sit amet",
+  },
+  {
+    id: 5,
+    path: "/",
+    title: "lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  },
+];
+
+export const topTags = [
+  {
+    id: 1,
+    path: "/",
+    name: "nextjs",
+    count: 29,
+  },
+  {
+    id: 2,
+    path: "/",
+    name: "test",
+    count: 18,
+  },
+  {
+    id: 3,
+    path: "/",
+    name: "react",
+    count: 17,
+  },
+  {
+    id: 4,
+    path: "/",
+    name: "css",
+    count: 12,
+  },
+  {
+    id: 5,
+    path: "/",
+    name: "next js",
+    count: 9,
+  },
+];
