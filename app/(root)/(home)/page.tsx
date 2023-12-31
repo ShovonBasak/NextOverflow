@@ -1,3 +1,4 @@
+import Filter from "@/components/shared/Filter";
 import LocalSearch from "@/components/shared/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -16,15 +17,15 @@ export default function Home() {
           </Button>
         </Link>
       </div>
-      <div className="flex items-center justify-between gap-5 max-sm:flex-col">
+      <div className="mt-7 flex w-full flex-col justify-between max-sm:gap-5 sm:gap-10">
         <LocalSearch
           route="/"
           iconPosition="left"
           placeholder="Search in Questions"
-          className="max-w-[400px] grow"
+          className="w-full grow"
         />
 
-        <div>Filter</div>
+        <Filter />
       </div>
     </div>
   );

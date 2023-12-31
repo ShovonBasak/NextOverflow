@@ -4,7 +4,7 @@ import { Badge } from "../ui/badge";
 type props = {
   _id: number;
   name: string;
-  totalQuestions: number;
+  totalQuestions?: number;
   showCount: boolean;
 };
 const Tag = ({ _id, name, totalQuestions, showCount }: props) => {

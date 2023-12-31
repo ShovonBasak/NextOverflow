@@ -12,7 +12,7 @@ type SearchProps = {
 const Search = ({ className, placeholder, iconPosition, onChange, ...props }: SearchProps) => {
   return (
     <div
-      className={`background-light800_darkgradient relative flex min-h-[56px] max-w-[600px] grow items-center gap-1 rounded-xl px-4 ${className}`}
+      className={`background-light800_darkgradient relative flex min-h-[56px] grow items-center gap-1 rounded-xl px-4 ${className}`}
     >
       {iconPosition === "left" && (
         <Image

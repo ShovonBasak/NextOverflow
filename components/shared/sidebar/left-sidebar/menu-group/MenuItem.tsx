@@ -15,7 +15,7 @@ const MenuItem = ({ item }: { item: SidebarLink }) => {
       key={item.route}
       href={item.route}
       className={`${
-        isActive ? "primary-gradient text-light-900" : "text-dark100_light900"
+        isActive ? "primary-gradient font-bold text-light-900" : "text-dark100_light900"
       } flex items-center justify-start gap-4 rounded-lg p-4`}
     >
       <Image
