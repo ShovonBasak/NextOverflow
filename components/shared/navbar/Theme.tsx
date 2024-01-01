@@ -16,7 +16,7 @@ const Theme = () => {
   const { mode, setMode } = useTheme();
 
   return (
-    <Menubar>
+    <Menubar className="!border-none">
       <MenubarMenu>
         <MenubarTrigger className="focus:bg-light-900 data-[state=open]:bg-light-900 dark:focus:bg-dark-200 dark:data-[state=open]:bg-dark-200">
           {mode === "light" ? (
