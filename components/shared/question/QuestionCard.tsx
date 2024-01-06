@@ -1,8 +1,7 @@
-import Image from "next/image";
-import Tag from "../Tag";
 import { formatAndDivideNumber, getTimestamp } from "@/lib/utils";
-import Metric from "../Metric";
 import Link from "next/link";
+import Metric from "../Metric";
+import Tag from "../Tag";
 
 interface QuestionListProps {
   id: number;
