@@ -1,30 +1,47 @@
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Tag from "../Tag";
+import { formatAndDivideNumber, getTimestamp } from "@/lib/utils";
+import Metric from "../Metric";
+import Link from "next/link";
 
-type QuestionProps = {
+interface QuestionListProps {
   id: number;
-  question: string;
+  title: string;
   tags: {
     id: number;
     name: string;
   }[];
-  likes: number;
-  answers: number;
-  views: number;
   author: {
+    id: number;
     name: string;
     image: string;
   };
-  date: string;
-};
+  upVotes: number;
+  views: number;
+  answers: number;
+  createdAt: Date;
+}
 
-const QuestionCard = ({ question }: { question: QuestionProps }) => {
+const QuestionCard = ({
+  id,
+  title,
+  tags,
+  author,
+  createdAt,
+  upVotes,
+  answers,
+  views,
+}: QuestionListProps) => {
   return (
     <div className="background-light900_dark200 mt-10 flex flex-col rounded-xl px-10 py-8 shadow-light-300 dark:shadow-none">
-      <h3 className="text-dark100_light900 h3-bold line-clamp-2">{question.question}</h3>
+      <span className="subtle-regular text-dark400_light700 line-clamp-1 flex sm:hidden">
+        {getTimestamp(createdAt)}
+      </span>
+      <Link href={`questions/${id}`}>
+        <h3 className="text-dark100_light900 h3-bold line-clamp-2">{title}</h3>
+      </Link>
       <div className="mt-4 flex items-center justify-start gap-1">
-        {question.tags.map((tag) => (
+        {tags.map((tag) => (
           <Tag
             key={tag.id}
             _id={tag.id}
@@ -33,53 +50,38 @@ const QuestionCard = ({ question }: { question: QuestionProps }) => {
           />
         ))}
       </div>
-      <div className="mt-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Image
-            src={question.author.image}
-            alt={question.author.name}
-            width={16}
-            height={16}
-            className="invert-colors rounded-full"
+      <div className="flex-between mt-6 w-full flex-wrap gap-3">
+        <Metric
+          imgUrl={author.image}
+          alt="user"
+          value={author.name}
+          title={` - asked ${getTimestamp(createdAt)}`}
+          href={`/profile/${author.id}`}
+          isAuthor
+          textStyles="body-medium text-dark400_light700"
+        />
+        <div className="flex items-center gap-3 max-sm:flex-wrap max-sm:justify-start">
+          <Metric
+            imgUrl="/assets/icons/like.svg"
+            alt="Votes"
+            value={formatAndDivideNumber(upVotes)}
+            title=" Votes"
+            textStyles="small-medium text-dark400_light800"
           />
-          <span className="small-regular text-dark500_light700">{question.author.name}</span>
-          <span className="small-regular text-dark500_light700"> • asked on {question.date}</span>
-        </div>
-        <div className="flex items-center gap-2">
-          {[
-            {
-              icon: "/assets/icons/like.svg",
-              text: "Likes",
-              count: question.likes,
-            },
-            {
-              icon: "/assets/icons/message.svg",
-              text: "Answers",
-              count: question.answers,
-            },
-            {
-              icon: "/assets/icons/eye.svg",
-              text: "Views",
-              count: question.views,
-            },
-          ].map((metadata) => {
-            return (
-              <div
-                key={metadata.text}
-                className="flex gap-1"
-              >
-                <Image
-                  src={metadata.icon}
-                  alt={metadata.text}
-                  width={16}
-                  height={16}
-                />
-                <span className="small-regular text-dark500_light700">
-                  {metadata.count} {metadata.text}
-                </span>
-              </div>
-            );
-          })}
+          <Metric
+            imgUrl="/assets/icons/message.svg"
+            alt="message"
+            value={formatAndDivideNumber(answers)}
+            title=" Answers"
+            textStyles="small-medium text-dark400_light800"
+          />
+          <Metric
+            imgUrl="/assets/icons/eye.svg"
+            alt="eye"
+            value={formatAndDivideNumber(views)}
+            title=" Views"
+            textStyles="small-medium text-dark400_light800"
+          />
         </div>
       </div>
     </div>
