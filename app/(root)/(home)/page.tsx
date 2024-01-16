@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col px-6">
+    <div className="flex flex-col">
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row">
         <h1 className="h1-bold text-dark100_light900">All Questions</h1>
         <Link

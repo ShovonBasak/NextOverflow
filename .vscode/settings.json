@@ -1,5 +1,13 @@
 {
-  "cSpell.words": ["darkgradient", "Mobilenav", "nextjs", "Signup", "tailwindcss"],
+  "cSpell.words": [
+    "darkgradient",
+    "hookform",
+    "Mobilenav",
+    "nextjs",
+    "Signup",
+    "tailwindcss",
+    "tinymce"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
@@ -16,5 +24,18 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "tailwindCSS.emmetCompletions": true
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript",
+    "typescript": "typescript",
+    "css": "css"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "scm.showInputActionButton": true,
+  "git.showCommitInput": true,
+  "css.validate": false,
+  "editor.inlineSuggest.enabled": true
 }
