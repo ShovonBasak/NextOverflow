@@ -23,11 +23,14 @@ import { type } from "os";
 import Image from "next/image";
 import { useTheme } from "@/context/ThemeProvider";
 import { Badge } from "../ui/badge";
+import { createQuestion } from "@/lib/actions/question.action";
+import { useRouter } from "next/navigation";
 
-const Question = () => {
+const Question = ({userId}: {userId: string}) => {
   const editorRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { mode } = useTheme();
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof QuestionsSchema>>({
     resolver: zodResolver(QuestionsSchema),
@@ -44,6 +47,14 @@ const Question = () => {
 
     try {
       // API call to create question will go here
+      createQuestion({
+        title: values.title,
+        explanation: values.explanation,
+        tags: values.tags,
+        author: JSON.parse(userId),
+        path: "/",
+      });
+      router.push("/");
     } catch (error) {
     } finally {
       setIsSubmitting(false);
