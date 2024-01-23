@@ -5,8 +5,25 @@ import { connectToDB } from "../database";
 import { revalidatePath } from "next/cache";
 import { Types } from "mongoose";
 import Tag from "@/database/tag.model";
+import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
+import User from "@/database/user.model";
 
-export async function createQuestion(params: any) {
+export async function getQuestions(params: GetQuestionsParams) {
+  // connect to database
+  connectToDB();
+  // get questions
+  try {
+    const questions = await Question.find({})
+      .populate({path: "author", model: User})
+      .populate({path: "tags", model: Tag})
+      .sort({ createdAt: -1 });
+    return { questions };
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function createQuestion(params: CreateQuestionParams) {
   // connect to database
   connectToDB();
   // create question

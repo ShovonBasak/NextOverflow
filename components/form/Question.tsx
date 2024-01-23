@@ -19,12 +19,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { type } from "os";
 import Image from "next/image";
 import { useTheme } from "@/context/ThemeProvider";
 import { Badge } from "../ui/badge";
 import { createQuestion } from "@/lib/actions/question.action";
 import { useRouter } from "next/navigation";
+
+const type: string = "create";
 
 const Question = ({userId}: {userId: string}) => {
   const editorRef = useRef(null);
