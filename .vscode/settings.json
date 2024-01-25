@@ -1,13 +1,5 @@
 {
-  "cSpell.words": [
-    "darkgradient",
-    "hookform",
-    "Mobilenav",
-    "nextjs",
-    "Signup",
-    "tailwindcss",
-    "tinymce"
-  ],
+  "cSpell.words": ["darkgradient", "hookform", "Mobilenav", "nextjs", "Signup", "svix", "tailwindcss", "tinymce"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {

@@ -48,7 +48,7 @@ const Question = ({userId}: {userId: string}) => {
 
     try {
       // API call to create question will go here
-      createQuestion({
+      await createQuestion({
         title: values.title,
         explanation: values.explanation,
         tags: values.tags,
