@@ -4,7 +4,6 @@ import QuestionCard from "./QuestionCard";
 
 const QuestionList = async () => {
   const result = await getQuestions({});
-  console.log("Here is the result" + result);
 
   return (
     <div className="mt-10 flex w-full flex-col gap-6">
