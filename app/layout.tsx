@@ -17,7 +17,7 @@ const spaceGrotesk = SpaceGrotesk({
   variable: "--font-spaceGrotesk",
 });
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
   title: "NextFlow",
   description:
     "A community driven platform for asking and answering programming questions. Get help share knowledge, and collaborate with developers around the world. Explore topics in web development, mobile app development, algorithms, data structure, and more.",
