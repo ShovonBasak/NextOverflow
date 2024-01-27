@@ -3,7 +3,7 @@ import LocalSearch from "@/components/shared/search/LocalSearch";
 import UserList from "@/components/shared/user/UserList";
 import { UserFilters } from "@/constants/filters";
 
-const page = () => {
+const Community = () => {
   return (
     <div className="flex flex-col">
       <h1 className="h1-bold text-dark100_light900">All Users</h1>
@@ -24,4 +24,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Community;
