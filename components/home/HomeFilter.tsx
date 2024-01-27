@@ -20,7 +20,7 @@ const HomeFilter = () => {
         ))}
       </ToggleGroup>
 
-      <Filter className="hidden max-sm:flex" />
+      <Filter items={HomePageFilters} className="hidden max-sm:flex" />
     </div>
   );
 };

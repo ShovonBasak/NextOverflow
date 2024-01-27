@@ -5,6 +5,18 @@ import { connectToDB } from "../database";
 import { CreateUserParams, DeleteUserParams, UpdateUserParams } from "./shared.types";
 import Question from "@/database/question.model";
 
+
+export async function getAllUsers() {
+  try {
+    connectToDB();
+    const users = await User.find({});
+    return users;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
 export async function getUserByClerkId(clerkId: string) {
   try {
     connectToDB();
@@ -12,6 +24,7 @@ export async function getUserByClerkId(clerkId: string) {
     return user;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 }
 

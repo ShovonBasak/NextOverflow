@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
@@ -53,23 +52,38 @@ export async function POST(req: Request) {
   const eventType = evt.type;
 
   if (eventType === "user.created") {
-    const { username, email_addresses, image_url, id, first_name, last_name } = evt.data;
+    const {
+      username,
+      email_addresses: emailAddress,
+      image_url: imageUrl,
+      id,
+      first_name: firstName,
+      last_name: lastName,
+    } = evt.data;
+
     await createUser({
       clerkId: id,
-      name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
+      name: `${firstName}${lastName ? ` ${lastName}` : ""}`,
       username: username!,
-      email: email_addresses[0].email_address,
-      image: image_url,
+      email: emailAddress[0].email_address,
+      image: imageUrl,
     });
   } else if (eventType === "user.updated") {
-    const { username, email_addresses, image_url, id, first_name, last_name } = evt.data;
+    const {
+      username,
+      email_addresses: emailAddress,
+      image_url: imageUrl,
+      id,
+      first_name: firstName,
+      last_name: lastName,
+    } = evt.data;
     await updateUser({
       clerkId: id,
       updateData: {
-        name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
+        name: `${firstName}${lastName ? ` ${lastName}` : ""}`,
         username: username!,
-        email: email_addresses[0].email_address,
-        image: image_url,
+        email: emailAddress[0].email_address,
+        image: imageUrl,
       },
     });
   } else if (eventType === "user.deleted") {

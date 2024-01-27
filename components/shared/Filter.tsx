@@ -5,9 +5,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { HomePageFilters } from "@/constants/filters";
 
-const Filter = ({className}: {className: string}) => {
+const Filter = ({items, className}: {items: Array<{name: string, value: string}>, className: string}) => {
   return (
     <div className={`relative ${className}`}>
       <Select>
@@ -17,7 +16,7 @@ const Filter = ({className}: {className: string}) => {
           </div>
         </SelectTrigger>
         <SelectContent className="text-dark500_light700 small-regular border-none bg-light-900 dark:bg-dark-300">
-          {HomePageFilters.map((filter) => {
+          {items.map((filter) => {
             return (
               <SelectItem
                 key={filter.value}
