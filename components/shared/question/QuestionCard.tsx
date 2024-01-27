@@ -7,7 +7,7 @@ interface QuestionListProps {
   id: number;
   title: string;
   tags: {
-    id: number;
+    id: string;
     name: string;
   }[];
   author: {

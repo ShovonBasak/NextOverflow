@@ -1,6 +1,5 @@
 import { getAllTags } from "@/lib/actions/tags.action";
 import NoResult from "../NoResult";
-import Link from "next/link";
 import TagCard from "./TagCard";
 
 const TagList = async () => {

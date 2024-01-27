@@ -64,27 +64,27 @@ export const topQuestions = [
 
 export const topTags = [
   {
-    id: 1,
+    id: "1",
     name: "nextjs",
     questionCount: 29
   },
   {
-    id: 2,
+    id: "2",
     name: "test",
     questionCount: 18
   },
   {
-    id: 3,
+    id: "3",
     name: "react",
     questionCount: 17
   },
   {
-    id: 4,
+    id: "4",
     name: "css",
     questionCount: 12
   },
   {
-    id: 5,
+    id: "5",
     name: "next js",
     questionCount: 9
   },
