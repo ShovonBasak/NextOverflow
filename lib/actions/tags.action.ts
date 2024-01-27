@@ -14,3 +14,14 @@ export async function getTopInteractedTags(params: GetTopInteractedTagsParams) {
     throw error;
   }
 }
+
+export async function getAllTags() {
+  try {
+    connectToDB();
+    const tags = await Tag.find({});
+    return tags;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
