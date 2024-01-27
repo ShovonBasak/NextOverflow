@@ -5,17 +5,15 @@ import { connectToDB } from "../database";
 import { revalidatePath } from "next/cache";
 import { Types } from "mongoose";
 import Tag from "@/database/tag.model";
-import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
+import { CreateQuestionParams, GetQuestionByIdParams, GetQuestionsParams } from "./shared.types";
 import User from "@/database/user.model";
 
 export async function getQuestions(params: GetQuestionsParams) {
-  // connect to database
-  connectToDB();
-  // get questions
   try {
+    connectToDB();
     const questions = await Question.find({})
-      .populate({path: "author", model: User})
-      .populate({path: "tags", model: Tag})
+      .populate({ path: "author", model: User })
+      .populate({ path: "tags", model: Tag })
       .sort({ createdAt: -1 });
     return { questions };
   } catch (error) {
@@ -24,11 +22,22 @@ export async function getQuestions(params: GetQuestionsParams) {
   }
 }
 
-export async function createQuestion(params: CreateQuestionParams) {
-  // connect to database
-  connectToDB();
-  // create question
+export async function getQuestionById(params: GetQuestionByIdParams) {
   try {
+    connectToDB();
+    const question = await Question.findOne({ _id: params.questionId })
+      .populate({ path: "author", model: User })
+      .populate({ path: "tags", model: Tag });
+    return question;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+export async function createQuestion(params: CreateQuestionParams) {
+  try {
+    connectToDB();
     const { title, explanation, tags, author, path } = params;
     const question = await Question.create({
       title,
