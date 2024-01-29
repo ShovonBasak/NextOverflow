@@ -2,6 +2,7 @@ import Answer from "@/components/form/Answer";
 import Metric from "@/components/shared/Metric";
 import ParseHTML from "@/components/shared/ParseHTML";
 import Tag from "@/components/shared/Tag";
+import AllAnswers from "@/components/shared/answer/AllAnswers";
 import { getQuestionById } from "@/lib/actions/question.action";
 import { getUserByClerkId } from "@/lib/actions/user.action";
 import { formatAndDivideNumber, getTimestamp } from "@/lib/utils";
@@ -29,7 +30,7 @@ const QuestionDetail = async ({ params }: { params: { id: string } }) => {
           >
             <Image
               src={question.author.image}
-              className="rounded-full"
+              className="h-[22px] w-[22px] rounded-full"
               width={22}
               height={22}
               alt="profile"
@@ -79,6 +80,11 @@ const QuestionDetail = async ({ params }: { params: { id: string } }) => {
           />
         ))}
       </div>
+
+      <AllAnswers
+        questionId={question._id}
+        totalAnswers={question.answers.length}
+      />
 
       <Answer
         questionId={JSON.stringify(question._id)}
