@@ -1,4 +1,5 @@
 import "./globals.css";
+import "../styles/prism.css";
 import type { ReactNode } from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";

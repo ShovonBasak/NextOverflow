@@ -1,4 +1,5 @@
 import Metric from "@/components/shared/Metric";
+import ParseHTML from "@/components/shared/ParseHTML";
 import Tag from "@/components/shared/Tag";
 import { getQuestionById } from "@/lib/actions/question.action";
 import { formatAndDivideNumber, getTimestamp } from "@/lib/utils";
@@ -27,7 +28,9 @@ const QuestionDetail = async ({ params }: { params: { id: string } }) => {
           </Link>
           <div className="flex justify-end">VOTING</div>
         </div>
-        <h2 className="h2-semibold text-dark200_light900 mt-3.5 w-full text-left">{question.title}</h2>
+        <h2 className="h2-semibold text-dark200_light900 mt-3.5 w-full text-left">
+          {question.title}
+        </h2>
       </div>
 
       <div className="mb-8 mt-5 flex flex-wrap gap-4">
@@ -53,6 +56,8 @@ const QuestionDetail = async ({ params }: { params: { id: string } }) => {
           textStyles="small-medium text-dark400_light800"
         />
       </div>
+
+      <ParseHTML data={question.explanation} />
 
       <div className="mt-8 flex flex-wrap gap-2">
         {question.tags.map((tag: any) => (

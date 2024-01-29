@@ -32,7 +32,7 @@ const QuestionCard = ({
   views,
 }: QuestionListProps) => {
   return (
-    <div className="background-light900_dark200 mt-10 flex flex-col rounded-xl px-10 py-8 shadow-light-300 dark:shadow-none">
+    <div className="background-light900_dark200 flex flex-col rounded-xl px-10 py-8 shadow-light-300 dark:shadow-none">
       <span className="subtle-regular text-dark400_light700 line-clamp-1 flex sm:hidden">
         {getTimestamp(createdAt)}
       </span>
