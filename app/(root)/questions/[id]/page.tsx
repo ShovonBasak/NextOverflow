@@ -1,13 +1,23 @@
+import Answer from "@/components/form/Answer";
 import Metric from "@/components/shared/Metric";
 import ParseHTML from "@/components/shared/ParseHTML";
 import Tag from "@/components/shared/Tag";
 import { getQuestionById } from "@/lib/actions/question.action";
+import { getUserByClerkId } from "@/lib/actions/user.action";
 import { formatAndDivideNumber, getTimestamp } from "@/lib/utils";
+import { auth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 
 const QuestionDetail = async ({ params }: { params: { id: string } }) => {
   const question = await getQuestionById({ questionId: params.id });
+  const { userId: clerkId } = auth();
+
+  let mongoUser;
+
+  if (clerkId) {
+    mongoUser = await getUserByClerkId(clerkId);
+  }
 
   return (
     <>
@@ -69,6 +79,11 @@ const QuestionDetail = async ({ params }: { params: { id: string } }) => {
           />
         ))}
       </div>
+
+      <Answer
+        questionId={JSON.stringify(question._id)}
+        authorId={JSON.stringify(mongoUser._id)}
+      />
     </>
   );
 };
